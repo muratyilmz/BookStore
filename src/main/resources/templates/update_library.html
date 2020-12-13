@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang ="en" xlmns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Free Library</title>
+<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+</head>
+<body>
+	<div class="container">
+		<h1>Free Library</h1>
+		<hr>
+		<h2>Update Library</h2>
+		
+		<form action="#" th:action="@{/saveLibrary}" th:object = "${library}" method="POST">
+			<input type="hidden" th:field="*{id}">
+		
+			<input type="text" th:field = "*{writer}" class="form-control mb-4 col-4">
+			
+			<input type="text" th:field = "*{publisher}" class="form-control mb-4 col-4">
+			
+			<input type="text" th:field = "*{book}" class="form-control mb-4 col-4">
+			
+			<button type="submit" class="btn btn-primary" data-toggle="button" aria-pressed="false"
+			 autocomplete="off"> Update Library</button>
+		</form>	
+			
+	
+	</div>
+
+
+</body>
+</html>
