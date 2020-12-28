@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang ="en" xlmns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Free Library</title>
+<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+</head>
+<body>
+	<div class="container">
+		<h1>Free Library</h1>
+		<hr>
+		<h2>Update Library</h2>
+		<div class="form-group">
+		<form action="#" th:action="@{/saveLibrary}" th:object = "${library}" method="POST">
+			<input type="hidden" th:field="*{id}">
+			
+			<input type="text" th:field = "*{isbn}" placeholder="ISBN" class="form-control mb-4 col-4">	
+			<input type="text" th:field = "*{writer}" placeholder="Writer Name" class="form-control mb-4 col-4">
+   			 <textarea class="form-control mb-4 col-4" th:field = "*{writerdesc}" rows="3" placeholder="Writer Description"></textarea>
+  			
+			<input type="text" th:field = "*{publisher}" placeholder="Publisher" class="form-control mb-4 col-4">
+			<textarea class="form-control mb-4 col-4" th:field = "*{publisdesc}" rows="3" placeholder="Publish Description"></textarea>
+			
+			<input type="text" th:field = "*{book}" placeholder="Book" class="form-control mb-4 col-4">
+			
+			<textarea class="form-control mb-4 col-4" th:field = "*{bookdesc}" rows="3" placeholder="Book Description"></textarea>
+			
+  			  <label>Number of Writer Book</label>
+ 		 	  <input type="text" class="form-control mb-4 col-4" th:field = "*{booknumb}">
+  
+  			  <label>Number of Publisher Books</label>
+   		   	  <input type="text" class="form-control mb-4 col-4" th:field = "*{publisnumber}">
+			
+			<button type="submit" class="btn btn-primary" data-toggle="button" aria-pressed="false"
+			 autocomplete="off"> Update Library</button>
+		</form>	
+		</div>
+			
+	
+	</div>
+
+
+</body>
+</html>

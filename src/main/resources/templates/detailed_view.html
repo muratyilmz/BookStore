@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang ="en" xlmns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>View Details</title>
+<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+</head>
+<body>
+	<div class="container">
+		<h1>Book Store</h1>
+		<hr>
+		<h2>View Details</h2>
+		<div class="form-group">
+		<form action="#" th:action="@{/detailedView}" th:object = "${library}">
+			<input type="hidden" th:field="*{id}">
+			
+			<input type="text" th:field = "*{isbn}" placeholder="ISBN" class="form-control mb-4 col-4" disabled>	
+			<input type="text" th:field = "*{writer}" placeholder="Writer Name" class="form-control mb-4 col-4" disabled>
+   			 <textarea class="form-control mb-4 col-4" th:field = "*{writerdesc}" rows="3" placeholder="Writer Description" disabled></textarea>
+  			
+			<input type="text" th:field = "*{publisher}" placeholder="Publisher" class="form-control mb-4 col-4" disabled>
+			<textarea class="form-control mb-4 col-4" th:field = "*{publisdesc}" rows="3" placeholder="Publish Description" disabled></textarea>
+			
+			<input type="text" th:field = "*{book}" placeholder="Book" class="form-control mb-4 col-4" disabled>
+			
+			<textarea class="form-control mb-4 col-4" th:field = "*{bookdesc}" rows="3" placeholder="Book Description" disabled></textarea>
+			
+  			  <label>Number of Writer Book</label>
+ 		 	  <input type="text" class="form-control mb-4 col-4" th:field = "*{booknumb}" disabled>
+  
+  			  <label>Number of Publisher Books</label>
+   		   	  <input type="text" class="form-control mb-4 col-4" th:field = "*{publisnumber}" disabled>
+			
+		</form>	
+		</div>
+			
+	
+	</div>
+
+
+</body>
+</html>

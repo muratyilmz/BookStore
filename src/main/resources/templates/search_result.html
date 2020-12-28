@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang ="en" xlmns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Search Result</title>
+<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+</head>
+<body>
+	<div class = "container my 2">
+	<h2>Searh Results for '[[${keyword}]]'</h2>
+	<br>
+	<a th:href ="@{/showNewLibraryForm}" class="btn btn-primary btn-sm mb-3"> Add Book </a>
+		<table class= "table table-bordered">
+			<thead>
+			<tr>
+				<th> 	ISBN NO 		</th>
+				<th>	Writer Name		</th>
+				<th>  	Publisher		</th>
+				<th>  	Book			</th>	
+				<th> 	Actions			</th>
+			</tr>
+			</thead>
+			<form th:action=@{/search} method = "get">
+				Filter:
+				&nbsp
+				<input type="search" name="keyword"  placeholder="15756 or Dostoyevski" required/>&nbsp
+				<button type="submit" class="btn btn-primary btn-sm mb-1" data-toggle=" button" aria-pressed="false"
+			 autocomplete="off" > Search</button>
+			</form>
+			
+	<tbody>
+		<tr th:each="library:${searchResult}">
+			<td th:text="${library.isbn}"></td>
+			<td th:text="${library.writer}"></td>		
+			<td th:text="${library.publisher}"></td>
+			<td th:text="${library.book}"></td>
+			
+			
+			
+			<td> <a th:href="@{/showFormForUpdate/{id}(id=${library.id})}" class="btn btn-primary "> Update  </a>
+			<a th:href="@{/detailedView/{id}(id=${library.id})}" class="btn btn-primary "> Detailed View </a>
+			 <a th:href="@{/deleteItem/{id}(id=${library.id})}" class="btn btn-danger"> Delete  </a></td>
+		</tr>
+	</tbody>
+	</table>
+	</div>
+</body>
+</html>
